@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Users, Settings, Shield, Activity, Menu } from 'lucide-react';
+import { Home, FolderKanban, Bot, ArrowUpDown, BarChart3, Users, Settings, Menu } from 'lucide-react';
 
 export default function DashboardLayout({
   children
@@ -15,10 +15,13 @@ export default function DashboardLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const navItems = [
-    { href: '/dashboard', icon: Users, label: 'Team' },
-    { href: '/dashboard/general', icon: Settings, label: 'General' },
-    { href: '/dashboard/activity', icon: Activity, label: 'Activity' },
-    { href: '/dashboard/security', icon: Shield, label: 'Security' }
+    { href: '/dashboard', icon: Home, label: 'Overview' },
+    { href: '/dashboard/projects', icon: FolderKanban, label: 'Projects' },
+    { href: '/dashboard/agents', icon: Bot, label: 'Agents' },
+    { href: '/dashboard/transfers', icon: ArrowUpDown, label: 'Transfers' },
+    { href: '/dashboard/analytics', icon: BarChart3, label: 'Analytics' },
+    { href: '/dashboard/team', icon: Users, label: 'Team' },
+    { href: '/dashboard/settings', icon: Settings, label: 'Settings' }
   ];
 
   return (
@@ -26,7 +29,7 @@ export default function DashboardLayout({
       {/* Mobile header */}
       <div className="lg:hidden flex items-center justify-between bg-white border-b border-gray-200 p-4">
         <div className="flex items-center">
-          <span className="font-medium">Settings</span>
+          <span className="font-medium">TCP Agent Platform</span>
         </div>
         <Button
           className="-mr-3"
